@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ControllerHandler : MonoBehaviour
 {
@@ -22,19 +19,32 @@ public class ControllerHandler : MonoBehaviour
     [SerializeField] private GameEvent nonVerticalAxisEvent;
     private bool _isVerticalAxisInUse;
 
+    [SerializeField] private GameEvent anyDirectionalAxisEvent;
     //[SerializeField] private GameEvent noDirectionalAxisEvent;
 
+    #endregion
+
+    #region Camera Buttons
+    [SerializeField] private FloatReference mouseVerticalAxis;
+    [SerializeField] private FloatReference mouseHorizontalAxis;
+    [SerializeField] private GameEvent cameraLeftEvent;
+    [SerializeField] private GameEvent cameraRightEvent;
+    [SerializeField] private GameEvent cameraUpEvent;
+    [SerializeField] private GameEvent cameraDownEvent;
+    [SerializeField] private GameEvent anyCameraAxisEvent;
+    [SerializeField] private GameEvent noMouseVerticalAxis;
+    [SerializeField] private GameEvent noMouseHorizontalAxis;
     #endregion
 
     #region Action Buttons
     [Header("Action Buttons Variables")]
     [SerializeField] private GameEvent startButtonEvent;
-    [SerializeField] private GameEvent squareButtonEvent;
-    [SerializeField] private GameEvent xButtonEvent;
+    [SerializeField] private GameEvent fireButtonEvent;
+    [SerializeField] private GameEvent confirmButtonEvent;
 
-    private bool isStartAxisInUse = false;
-    private bool isSquareAxisInUse = false;
-    private bool isXAxisInUse = false;
+    private bool _isStartAxisInUse = false;
+    private bool _isFireAxisInUse = false;
+    private bool _isConfirmAxisInUse = false;
     #endregion
     
     [Header("UI Active Variables")]
@@ -45,9 +55,11 @@ public class ControllerHandler : MonoBehaviour
     {
         CheckingVerticalAxis();
         CheckingHorizontalAxis();
+        CheckingMouseVerticalAxis();
+        CheckingMouseHorizontalAxis();
         CheckingStartButton();
-        CheckingSquareButton();
-        CheckingXButton();
+        CheckingFireButton();
+        CheckingConfirmButton();
     }
 
     #region Horizontal Functions
@@ -76,6 +88,7 @@ public class ControllerHandler : MonoBehaviour
         if (horizontalSinglePress.Value)
             _isHorizontalAxisInUse = true;
         rightButtonEvent.Raise();
+        anyDirectionalAxisEvent.Raise();
     }
 
     private void LeftDirectionActions()
@@ -84,6 +97,7 @@ public class ControllerHandler : MonoBehaviour
         if (horizontalSinglePress.Value)
             _isHorizontalAxisInUse = true;
         leftButtonEvent.Raise();
+        anyDirectionalAxisEvent.Raise();
     }
 
     #endregion
@@ -113,6 +127,7 @@ public class ControllerHandler : MonoBehaviour
         if (verticalSinglePress.Value)
             _isVerticalAxisInUse = true;
         upButtonEvent.Raise();
+        anyDirectionalAxisEvent.Raise();
     }
 
     private void DownDirectionActions()
@@ -121,46 +136,125 @@ public class ControllerHandler : MonoBehaviour
         if (verticalSinglePress.Value)
             _isVerticalAxisInUse = true;
         downButtonEvent.Raise();
+        anyDirectionalAxisEvent.Raise();
     }
 
     #endregion
 
+    #region Camera Vertical Functions
+
+    private void CheckingMouseVerticalAxis()
+    {
+        var mouseVerticalValue = Input.GetAxisRaw(Global.MouseVerticalAxis);
+        if (mouseVerticalValue < 0)
+            DownRotationActions(mouseVerticalValue);
+        else if (mouseVerticalValue > 0)
+            UpRotationActions(mouseVerticalValue);
+        else if (Math.Abs(mouseVerticalValue) < Global.Tolerance)
+            NoMouseVerticalActions();
+    }
+
+    private void NoMouseVerticalActions()
+    {
+        mouseVerticalAxis.Value = 0;
+        noMouseVerticalAxis.Raise();
+    }
+
+    private void UpRotationActions(float mouseVerticalValue)
+    {
+        mouseVerticalAxis.Value = mouseVerticalValue;
+        cameraUpEvent.Raise();
+        anyCameraAxisEvent.Raise();
+    }
+
+    private void DownRotationActions(float mouseVerticalValue)
+    {
+        mouseVerticalAxis.Value = mouseVerticalValue;
+        cameraDownEvent.Raise();
+        anyCameraAxisEvent.Raise();
+    }
+
+    #endregion
+
+    #region Camera Horizontal Functions
+
+    private void CheckingMouseHorizontalAxis()
+    {
+        var mouseHorizontalValue = Input.GetAxisRaw(Global.MouseHorizontalAxis);
+        if (mouseHorizontalValue < 0)
+            LeftRotationActions(mouseHorizontalValue);
+        else if (mouseHorizontalValue > 0)
+            RightRotationActions(mouseHorizontalValue);
+        else if (Math.Abs(mouseHorizontalValue) < Global.Tolerance)
+            NoMouseHorizontalActions();
+    }
+
+    private void NoMouseHorizontalActions()
+    {
+        mouseHorizontalAxis.Value = 0;
+        noMouseHorizontalAxis.Raise();
+    }
+
+    private void RightRotationActions(float mouseHorizontalValue)
+    {
+        mouseHorizontalAxis.Value = mouseHorizontalValue;
+        cameraRightEvent.Raise();
+        anyCameraAxisEvent.Raise();
+    }
+
+    private void LeftRotationActions(float mouseHorizontalValue)
+    {
+        mouseHorizontalAxis.Value = mouseHorizontalValue;
+        cameraLeftEvent.Raise();
+        anyCameraAxisEvent.Raise();
+    }
+
+    #endregion
+
+    #region Action Functions
+
     private void CheckingStartButton()
     {
-        if (Input.GetAxisRaw(Global.StartAxis) != 0 && !isStartAxisInUse)
+        if (Input.GetAxisRaw(Global.StartAxis) != 0 && !_isStartAxisInUse)
         {
             startButtonEvent.Raise();
-            isStartAxisInUse = true;
+            _isStartAxisInUse = true;
         }
-        else if (Input.GetAxisRaw(Global.StartAxis) == 0)
-            isStartAxisInUse = false;
+        else if (Math.Abs(Input.GetAxisRaw(Global.StartAxis)) < Global.Tolerance)
+            _isStartAxisInUse = false;
     }
 
-    private void CheckingSquareButton()
+    private void CheckingFireButton()
     {
-        if (Input.GetAxisRaw(Global.FireAxis) != 0 && !isSquareAxisInUse)
+        if (Input.GetAxisRaw(Global.FireAxis) != 0 && !_isFireAxisInUse)
         {
-            squareButtonEvent.Raise();
-            isSquareAxisInUse = true;
+            fireButtonEvent.Raise();
+            _isFireAxisInUse = true;
         }
-        else if (Input.GetAxisRaw(Global.FireAxis) == 0)
-            isSquareAxisInUse = false;
+        else if (Math.Abs(Input.GetAxisRaw(Global.FireAxis)) < Global.Tolerance)
+            _isFireAxisInUse = false;
     }
 
-    private void CheckingXButton()
+    private void CheckingConfirmButton()
     {
-        if (Input.GetAxisRaw(Global.JumpAxis) != 0 && !isXAxisInUse)
+        if (Input.GetAxisRaw(Global.JumpAxis) != 0 && !_isConfirmAxisInUse)
         {
-            xButtonEvent.Raise();
-            isXAxisInUse = true;
+            confirmButtonEvent.Raise();
+            _isConfirmAxisInUse = true;
         }
-        else if (Input.GetAxisRaw(Global.JumpAxis) == 0)
-            isXAxisInUse = false;
+        else if (Math.Abs(Input.GetAxisRaw(Global.JumpAxis)) < Global.Tolerance)
+            _isConfirmAxisInUse = false;
     }
+
+    #endregion
+
+    #region UI Functions
 
     private void CheckChangeButtonUi()
     {
         if (uiPanelActive.Value)
             uiChangeEvent.Raise();
     }
+
+    #endregion
 }
