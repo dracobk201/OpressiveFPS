@@ -36,11 +36,8 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         string targetTag = other.tag;
-
+        Destroy();
         if (targetTag.Equals(Global.EnemyTag) && gameObject.tag.Equals(Global.PlayerBulletTag))
-        {
             enemyImpacted.Raise();
-            Destroy();
-        }
     }
 }
