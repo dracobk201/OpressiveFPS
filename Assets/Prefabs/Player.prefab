@@ -120,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8846347446897885247}
   - component: {fileID: 8846347446897885245}
+  - component: {fileID: 5261070595123180029}
   - component: {fileID: 8846347446897885246}
   - component: {fileID: 8846347446897885186}
   - component: {fileID: 3494194854539885228}
@@ -165,6 +166,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5261070595123180029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846347446897885240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5307d5c68e388a346ac77121f3794408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerActualMaxImpacts:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: d4b048e6ea5471f45b9cd6fa58457e48, type: 2}
+  playerRemainingImpacts:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: ce16f255ff74a04438d47052edfd9fe5, type: 2}
+  playerDefeated: {fileID: 11400000, guid: f232648848489d449b1da4d80e738c63, type: 2}
 --- !u!114 &8846347446897885246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +387,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
