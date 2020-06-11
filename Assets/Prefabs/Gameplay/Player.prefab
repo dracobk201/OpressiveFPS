@@ -282,6 +282,10 @@ MonoBehaviour:
     useVariable: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: c966dbb6798f9034081ad1ba2d1c1fc4, type: 2}
+  strayFactor:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 57cc0af0b6b5ad1439b19519660c76ce, type: 2}
   playerShot: {fileID: 11400000, guid: 3c4b12366491bdb4eadabab72a5c9a05, type: 2}
   energyRecharged: {fileID: 11400000, guid: 5ecb85d29a44f6b4b819f5d575090557, type: 2}
   bulletPosition: {fileID: 1650236457729530127}

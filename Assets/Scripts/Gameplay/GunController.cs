@@ -10,6 +10,7 @@ public class GunController : MonoBehaviour
     [SerializeField] private FloatReference energyBulletCost;
     [SerializeField] private FloatReference energyRegenerationAmount;
     [SerializeField] private FloatReference energyRegenerationTime;
+    [SerializeField] private FloatReference strayFactor;
     [SerializeField] private GameEvent playerShot;
     [SerializeField] private GameEvent energyRecharged;
     [SerializeField] private Transform bulletPosition;
@@ -55,6 +56,12 @@ public class GunController : MonoBehaviour
             {
                 bullets.Items[i].transform.localPosition = initialPosition;
                 bullets.Items[i].transform.localRotation = initialRotation;
+
+                var randomNumberX = Random.Range(-strayFactor.Value, strayFactor.Value);
+                var randomNumberY = Random.Range(-strayFactor.Value, strayFactor.Value);
+                var randomNumberZ = Random.Range(-strayFactor.Value, strayFactor.Value);
+                bullets.Items[i].transform.Rotate(randomNumberX, randomNumberY, randomNumberZ);
+
                 bullets.Items[i].SetActive(true);
                 remainingEnergy.Value -= energyBulletCost.Value;
                 playerShot.Raise();
