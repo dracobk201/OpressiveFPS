@@ -186,6 +186,7 @@ MonoBehaviour:
     useVariable: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: ce16f255ff74a04438d47052edfd9fe5, type: 2}
+  playerDamaged: {fileID: 11400000, guid: cd13cb2e063b8bb468d8afcf7b9557a7, type: 2}
   playerDefeated: {fileID: 11400000, guid: f232648848489d449b1da4d80e738c63, type: 2}
 --- !u!114 &8846347446897885246
 MonoBehaviour:
@@ -260,8 +261,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d284059143d69b449a69859d8273ba75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullets: {fileID: 11400000, guid: b9b9dd7a6698cd84582c96edc23f8fc5, type: 2}
-  PlayerShot: {fileID: 11400000, guid: 3c4b12366491bdb4eadabab72a5c9a05, type: 2}
+  bullets: {fileID: 11400000, guid: b9b9dd7a6698cd84582c96edc23f8fc5, type: 2}
+  actualMaxEnergy:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 3390b12ccf1c7ee4c9fcdbee2a3b55c6, type: 2}
+  remainingEnergy:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 3bef14f909fe8314da2475af40d25c51, type: 2}
+  energyBulletCost:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: fe2d23145cdaa704bae0daee82b079a5, type: 2}
+  energyRegenerationAmount:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: d27a79ca6f7552940a6e2220da789622, type: 2}
+  energyRegenerationTime:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: c966dbb6798f9034081ad1ba2d1c1fc4, type: 2}
+  playerShot: {fileID: 11400000, guid: 3c4b12366491bdb4eadabab72a5c9a05, type: 2}
+  energyRecharged: {fileID: 11400000, guid: 5ecb85d29a44f6b4b819f5d575090557, type: 2}
   bulletPosition: {fileID: 1650236457729530127}
 --- !u!114 &8846347446897885241
 MonoBehaviour:
