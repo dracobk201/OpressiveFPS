@@ -21,6 +21,12 @@
     public const string FirstLevelScene = "Game";
     #endregion
 
+    #region States
+    public const string IdleState = "Idle State";
+    public const string PatrolState = "Patrol State";
+    public const string AttackState = "Attack State";
+    #endregion
+
     #region Constants
     public const double Tolerance = float.Epsilon;
     #endregion
