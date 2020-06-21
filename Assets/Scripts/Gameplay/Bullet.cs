@@ -5,12 +5,9 @@ public class Bullet : MonoBehaviour
 {
     #region Bullet Variables
     [Header("Bullet Variables")]
-    [SerializeField]
-    private FloatReference bulletVelocity;
-    [SerializeField]
-    private FloatReference bulletTimeOfLife;
-    [SerializeField]
-    private GameEvent enemyImpacted;
+    [SerializeField] private FloatReference bulletVelocity;
+    [SerializeField] private FloatReference bulletTimeOfLife;
+    [SerializeField] private GameEvent enemyImpacted;
     #endregion
 
     private void OnEnable()

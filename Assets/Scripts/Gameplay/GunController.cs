@@ -47,6 +47,8 @@ public class GunController : MonoBehaviour
 
     public void ShootBullet()
     {
+        if (remainingEnergy.Value < energyBulletCost.Value) return;
+
         var initialPosition = bulletPosition.position;
         var initialRotation = bulletPosition.rotation;
 
