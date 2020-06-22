@@ -39,10 +39,12 @@ public class ControllerHandler : MonoBehaviour
     #region Action Buttons
     [Header("Action Buttons Variables")]
     [SerializeField] private GameEvent startButtonEvent;
+    [SerializeField] private GameEvent quitButtonEvent;
     [SerializeField] private GameEvent fireButtonEvent;
     [SerializeField] private GameEvent confirmButtonEvent;
 
     private bool _isStartAxisInUse = false;
+    private bool _isQuitAxisInUse = false;
     private bool _isFireAxisInUse = false;
     private bool _isConfirmAxisInUse = false;
     #endregion
@@ -58,6 +60,7 @@ public class ControllerHandler : MonoBehaviour
         CheckingMouseVerticalAxis();
         CheckingMouseHorizontalAxis();
         CheckingStartButton();
+        CheckingQuitButton();
         CheckingFireButton();
         CheckingConfirmButton();
     }
@@ -222,6 +225,17 @@ public class ControllerHandler : MonoBehaviour
         }
         else if (Math.Abs(Input.GetAxisRaw(Global.StartAxis)) < Global.Tolerance)
             _isStartAxisInUse = false;
+    }
+
+    private void CheckingQuitButton()
+    {
+        if (Input.GetAxisRaw(Global.QuitAxis) != 0 && !_isQuitAxisInUse)
+        {
+            quitButtonEvent.Raise();
+            _isQuitAxisInUse = true;
+        }
+        else if (Math.Abs(Input.GetAxisRaw(Global.QuitAxis)) < Global.Tolerance)
+            _isQuitAxisInUse = false;
     }
 
     private void CheckingFireButton()
