@@ -151,9 +151,29 @@ MonoBehaviour:
   downButtonEvent: {fileID: 11400000, guid: 3d7be2a9898f0fb4c8dbf85ec2459867, type: 2}
   nonVerticalAxisEvent: {fileID: 11400000, guid: 5f9cf441191c92c44a5b5fdfb1ee67f3,
     type: 2}
+  anyDirectionalAxisEvent: {fileID: 11400000, guid: 4d7cf010e89143344b9d2a795f40807b,
+    type: 2}
+  mouseVerticalAxis:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 09495a90befaa264e9bdbc30e6a28369, type: 2}
+  mouseHorizontalAxis:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 0c1f9b11a556df5439d32e9fe27fdc3e, type: 2}
+  cameraLeftEvent: {fileID: 11400000, guid: 3584f36ac63fd3e48b5aaef1e53329ad, type: 2}
+  cameraRightEvent: {fileID: 11400000, guid: 2b5924be9264d2a40b6e5b2c0cf3074e, type: 2}
+  cameraUpEvent: {fileID: 11400000, guid: 5f090b632cbaeb54594e597c1d4e094b, type: 2}
+  cameraDownEvent: {fileID: 11400000, guid: adf2857481f931e46acab4217e0e0e7d, type: 2}
+  anyCameraAxisEvent: {fileID: 11400000, guid: 5e12a208eaf210b4ca4a544c3e4d6678, type: 2}
+  noMouseVerticalAxis: {fileID: 11400000, guid: 6181c6f72430afc4f82886a70932a696,
+    type: 2}
+  noMouseHorizontalAxis: {fileID: 11400000, guid: fc5e81dcf3143a34484d3496502b9328,
+    type: 2}
   startButtonEvent: {fileID: 11400000, guid: cc1fb3491f60c914abf70d15a244d3e2, type: 2}
-  squareButtonEvent: {fileID: 11400000, guid: bdff2087299eb204aaa98196d178e0cd, type: 2}
-  xButtonEvent: {fileID: 11400000, guid: 9d8c3c5206346104d9a1dee5ceaab4d5, type: 2}
+  quitButtonEvent: {fileID: 11400000, guid: 40148d6a17cde2b48a16e62cd67dbdf9, type: 2}
+  fireButtonEvent: {fileID: 11400000, guid: bdff2087299eb204aaa98196d178e0cd, type: 2}
+  confirmButtonEvent: {fileID: 11400000, guid: 9d8c3c5206346104d9a1dee5ceaab4d5, type: 2}
   uiPanelActive:
     useVariable: 1
     constantValue: 0
