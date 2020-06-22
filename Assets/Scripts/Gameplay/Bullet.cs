@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private FloatReference bulletVelocityPunishment;
     #region Bullet Variables
     [Header("Bullet Variables")]
     [SerializeField] private FloatReference bulletVelocity;
@@ -15,7 +16,8 @@ public class Bullet : MonoBehaviour
         TryGetComponent(out Rigidbody bulletRigidbody);
         StartCoroutine(AutoDestruction());
         bulletRigidbody.velocity = Vector2.zero;
-        bulletRigidbody.AddForce(transform.forward * bulletVelocity.Value, ForceMode.Impulse);
+        var newVelocity = bulletVelocity.Value * bulletVelocityPunishment.Value;
+        bulletRigidbody.AddForce(transform.forward * newVelocity, ForceMode.Impulse);
     }
 
     private void Destroy()
