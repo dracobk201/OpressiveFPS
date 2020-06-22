@@ -120,13 +120,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8846347446897885247}
   - component: {fileID: 8846347446897885245}
-  - component: {fileID: 5261070595123180029}
   - component: {fileID: 8846347446897885246}
-  - component: {fileID: 8846347446897885186}
+  - component: {fileID: 5261070595123180029}
   - component: {fileID: 3494194854539885228}
+  - component: {fileID: 8846347446897885186}
   - component: {fileID: 8846347446897885241}
   - component: {fileID: 8846347446897885244}
   - component: {fileID: 5787505675528387056}
+  - component: {fileID: 6831256168104451360}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -166,28 +167,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5261070595123180029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8846347446897885240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5307d5c68e388a346ac77121f3794408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerActualMaxImpacts:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: d4b048e6ea5471f45b9cd6fa58457e48, type: 2}
-  playerRemainingImpacts:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: ce16f255ff74a04438d47052edfd9fe5, type: 2}
-  playerDamaged: {fileID: 11400000, guid: cd13cb2e063b8bb468d8afcf7b9557a7, type: 2}
-  playerDefeated: {fileID: 11400000, guid: f232648848489d449b1da4d80e738c63, type: 2}
 --- !u!114 &8846347446897885246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4841acf5f78ebf14caef1d6d9e9ec14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeedPunishment:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: cb120db7cf5a6e44aab568f844ccc759, type: 2}
   horizontalAxis:
     useVariable: 1
     constantValue: 0
@@ -212,6 +195,100 @@ MonoBehaviour:
     useVariable: 1
     constantValue: 0
     variable: {fileID: 11400000, guid: 71161f29ceb16cb468d84cf377554687, type: 2}
+--- !u!114 &5261070595123180029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846347446897885240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5307d5c68e388a346ac77121f3794408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPointsPunishment:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 897336f6fd91ef1429c786838ee68d54, type: 2}
+  playerMaxImpacts:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: d4b048e6ea5471f45b9cd6fa58457e48, type: 2}
+  playerRemainingImpacts:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: cd9b103dc822eb34da1d28fe13e0fa0b, type: 2}
+  playerDamaged: {fileID: 11400000, guid: cd13cb2e063b8bb468d8afcf7b9557a7, type: 2}
+  playerDefeated: {fileID: 11400000, guid: f232648848489d449b1da4d80e738c63, type: 2}
+--- !u!114 &3494194854539885228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846347446897885240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d284059143d69b449a69859d8273ba75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergyPointsPunishment:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: a6a76e28588afdc40946f843e30c6c3d, type: 2}
+  energyPointsRegenPunishment:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 0e12887e035913f42995c39b94d5293b, type: 2}
+  bulletEnergyCostPunishment:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 460bdce06a125cb4a85b702e63f69850, type: 2}
+  bulletDamagePunishment:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 168a85dbed72d284ca633773a6d9f8d8, type: 2}
+  gunAccuracyPunishment:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 8c01c11ba5a039043a5f854b6b0eb133, type: 2}
+  bullets: {fileID: 11400000, guid: b9b9dd7a6698cd84582c96edc23f8fc5, type: 2}
+  actualMaxEnergy:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 3390b12ccf1c7ee4c9fcdbee2a3b55c6, type: 2}
+  remainingEnergy:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 3bef14f909fe8314da2475af40d25c51, type: 2}
+  energyBulletCost:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: fe2d23145cdaa704bae0daee82b079a5, type: 2}
+  energyRegenerationAmount:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: d27a79ca6f7552940a6e2220da789622, type: 2}
+  energyRegenerationTime:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: c966dbb6798f9034081ad1ba2d1c1fc4, type: 2}
+  bulletDamage:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: e16b45daea490f049b000e33e90992d7, type: 2}
+  actualBulletDamage:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: bd5bb8eedccaac145b5ce533f8c42507, type: 2}
+  accuracyFactor:
+    useVariable: 1
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 57cc0af0b6b5ad1439b19519660c76ce, type: 2}
+  playerShot: {fileID: 11400000, guid: 3c4b12366491bdb4eadabab72a5c9a05, type: 2}
+  energyRecharged: {fileID: 11400000, guid: 5ecb85d29a44f6b4b819f5d575090557, type: 2}
+  bulletPosition: {fileID: 1650236457729530127}
 --- !u!114 &8846347446897885186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,46 +326,6 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 11400000, guid: 5191b7a25cc00f04780aadbeb6bda7da, type: 2}
   playerCamera: {fileID: 8846347448124151730}
---- !u!114 &3494194854539885228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8846347446897885240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d284059143d69b449a69859d8273ba75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullets: {fileID: 11400000, guid: b9b9dd7a6698cd84582c96edc23f8fc5, type: 2}
-  actualMaxEnergy:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 3390b12ccf1c7ee4c9fcdbee2a3b55c6, type: 2}
-  remainingEnergy:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 3bef14f909fe8314da2475af40d25c51, type: 2}
-  energyBulletCost:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: fe2d23145cdaa704bae0daee82b079a5, type: 2}
-  energyRegenerationAmount:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: d27a79ca6f7552940a6e2220da789622, type: 2}
-  energyRegenerationTime:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: c966dbb6798f9034081ad1ba2d1c1fc4, type: 2}
-  strayFactor:
-    useVariable: 1
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 57cc0af0b6b5ad1439b19519660c76ce, type: 2}
-  playerShot: {fileID: 11400000, guid: 3c4b12366491bdb4eadabab72a5c9a05, type: 2}
-  energyRecharged: {fileID: 11400000, guid: 5ecb85d29a44f6b4b819f5d575090557, type: 2}
-  bulletPosition: {fileID: 1650236457729530127}
 --- !u!114 &8846347446897885241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +398,55 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3494194854539885228}
         m_MethodName: ShootBullet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6831256168104451360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846347446897885240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a18e8d76b6b3f54f94b92fae64ef79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f232648848489d449b1da4d80e738c63, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8846347446897885246}
+        m_MethodName: RestartStats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5261070595123180029}
+        m_MethodName: RestartStats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3494194854539885228}
+        m_MethodName: RestartStats
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -468,7 +554,7 @@ GameObject:
   - component: {fileID: 8846347448680709207}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

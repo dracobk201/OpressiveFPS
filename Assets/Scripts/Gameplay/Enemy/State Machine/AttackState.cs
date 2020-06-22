@@ -1,26 +1,26 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackState : iStates
 {
     private float _initTime;
-    private float _shootFrequency;
+    private float _chaseVelocity;
     private float _sightRadius;
     private float _speed;
     private bool _playerSpotted;
-    private bool _enemyAttacking;
     private EnemyStateMachine _stateMachine;
+    private NavMeshAgent _agent;
     private Rigidbody _enemyRigidbody;
-    private GameEvent _enemyShoot;
     private Vector3 _targetDestination;
 
-    public AttackState(EnemyStateMachine stateMachine, Rigidbody enemyRigidbody, float shootFrequency, float sightRadius, float speed, GameEvent enemyShoot)
+    public AttackState(EnemyStateMachine stateMachine, Rigidbody enemyRigidbody, NavMeshAgent agent, float chaseVelocity, float sightRadius, float speed)
     {
         _stateMachine = stateMachine;
         _enemyRigidbody = enemyRigidbody;
-        _shootFrequency = shootFrequency;
+        _agent = agent;
+        _chaseVelocity = chaseVelocity;
         _sightRadius = sightRadius;
         _speed = speed;
-        _enemyShoot = enemyShoot;
     }
 
     public override void OnEnter()
@@ -41,13 +41,10 @@ public class AttackState : iStates
         if (Vector3.Distance(_enemyRigidbody.position, _targetDestination) < 0.001f)
             _targetDestination *= -1.0f;
         _initTime += Time.deltaTime;
-        if (_initTime >= _shootFrequency)
-        {
-            if (_playerSpotted)
-                ShootTarget();
-            else
-                _stateMachine.ChangeState(Global.IdleState);
-        }
+        if (_playerSpotted)
+            DashToPlayer();
+        else
+            _stateMachine.ChangeState(Global.IdleState);
     }
 
     private bool SearchPlayer()
@@ -66,11 +63,9 @@ public class AttackState : iStates
         return false;
     }
 
-    private void ShootTarget()
+    private void DashToPlayer()
     {
-        _enemyShoot.Raise();
-        //_animator.SetTrigger(Global.SHOOTINGANIMATION);
-        _initTime = 0;
+        _speed = _chaseVelocity;
+        _agent.SetDestination(_targetDestination);
     }
-
 }

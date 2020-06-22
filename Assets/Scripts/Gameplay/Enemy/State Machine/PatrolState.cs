@@ -27,7 +27,7 @@ public class PatrolState : iStates
     {
         _initTime = 0;
         ChangePatrolPoint();
-        SetDestination();
+        SetNewDestination();
     }
 
     public override void OnExit()

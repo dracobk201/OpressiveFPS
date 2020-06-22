@@ -7,10 +7,9 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField] private FloatReference idleTime;
     [SerializeField] private FloatReference patrolTime;
     [SerializeField] private FloatReference patrolSwitchProbability;
-    [SerializeField] private FloatReference shootFrequency;
+    [SerializeField] private FloatReference chaseVelocity;
     [SerializeField] private FloatReference enemySpeed;
     [SerializeField] private FloatReference enemySightRadius;
-    [SerializeField] private GameEvent enemyShoot;
     [SerializeField] private Rigidbody enemyRigidbody;
 
     private Dictionary<string, iStates> _map = new Dictionary<string, iStates>();
@@ -21,7 +20,7 @@ public class EnemyStateMachine : MonoBehaviour
         NavMeshAgent agent = (TryGetComponent<NavMeshAgent>(out NavMeshAgent agentResult)) ? agentResult : gameObject.AddComponent<NavMeshAgent>();
         iStates newIdleState = new IdleState(this, idleTime.Value);
         iStates newPatrolState = new PatrolState(this, enemyRigidbody, agent, patrolTime.Value, patrolSwitchProbability.Value, enemySightRadius.Value);
-        iStates newAttackState = new AttackState(this, enemyRigidbody, shootFrequency.Value, enemySightRadius.Value, enemySpeed.Value, enemyShoot);
+        iStates newAttackState = new AttackState(this, enemyRigidbody, agent, chaseVelocity.Value, enemySightRadius.Value, enemySpeed.Value);
         _map.Add(Global.IdleState, newIdleState);
         _map.Add(Global.PatrolState, newPatrolState);
         _map.Add(Global.AttackState, newAttackState);

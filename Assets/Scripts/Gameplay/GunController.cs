@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    [SerializeField] private FloatReference maxEnergyPointsPunishment;
+    [SerializeField] private FloatReference energyPointsRegenPunishment;
+    [SerializeField] private FloatReference bulletEnergyCostPunishment;
+    [SerializeField] private FloatReference bulletDamagePunishment;
+    [SerializeField] private FloatReference gunAccuracyPunishment;
+
     [Header("Bullet Variables")]
     [SerializeField] private BulletsRuntimeSet bullets;
     [SerializeField] private FloatReference actualMaxEnergy;
@@ -10,20 +16,29 @@ public class GunController : MonoBehaviour
     [SerializeField] private FloatReference energyBulletCost;
     [SerializeField] private FloatReference energyRegenerationAmount;
     [SerializeField] private FloatReference energyRegenerationTime;
-    [SerializeField] private FloatReference strayFactor;
+    [SerializeField] private FloatReference bulletDamage;
+    [SerializeField] private FloatReference actualBulletDamage;
+    [SerializeField] private FloatReference accuracyFactor;
     [SerializeField] private GameEvent playerShot;
     [SerializeField] private GameEvent energyRecharged;
     [SerializeField] private Transform bulletPosition;
     private bool keepRecharging;
+    private float actualEnergyRegen;
+    private float actualBulletCost;
+    private float actualAccuracyFactor;
 
     private void Start()
     {
-        Initilize();
+        Initialize();
     }
 
-    private void Initilize()
+    private void Initialize()
     {
-        remainingEnergy.Value = actualMaxEnergy.Value;
+        remainingEnergy.Value = actualMaxEnergy.Value * maxEnergyPointsPunishment.Value;
+        actualEnergyRegen = energyRegenerationAmount.Value * energyPointsRegenPunishment.Value;
+        actualBulletCost = energyBulletCost.Value * bulletEnergyCostPunishment.Value;
+        actualBulletDamage.Value = bulletDamage.Value * bulletDamagePunishment.Value;
+        actualAccuracyFactor = accuracyFactor.Value * gunAccuracyPunishment.Value;
         keepRecharging = true;
         StartCoroutine(RechargeEnergy());
     }
@@ -38,7 +53,7 @@ public class GunController : MonoBehaviour
             if (currentTime < 0)
             {
                 energyRecharged.Raise();
-                remainingEnergy.Value += energyRegenerationAmount.Value;
+                remainingEnergy.Value += actualEnergyRegen;
                 currentTime = energyRegenerationTime.Value;
             }
             yield return null;
@@ -47,7 +62,7 @@ public class GunController : MonoBehaviour
 
     public void ShootBullet()
     {
-        if (remainingEnergy.Value < energyBulletCost.Value) return;
+        if (remainingEnergy.Value < actualBulletCost) return;
 
         var initialPosition = bulletPosition.position;
         var initialRotation = bulletPosition.rotation;
@@ -59,17 +74,30 @@ public class GunController : MonoBehaviour
                 bullets.Items[i].transform.localPosition = initialPosition;
                 bullets.Items[i].transform.localRotation = initialRotation;
 
-                var randomNumberX = Random.Range(-strayFactor.Value, strayFactor.Value);
-                var randomNumberY = Random.Range(-strayFactor.Value, strayFactor.Value);
-                var randomNumberZ = Random.Range(-strayFactor.Value, strayFactor.Value);
+                var randomNumberX = Random.Range(-actualAccuracyFactor, actualAccuracyFactor);
+                var randomNumberY = Random.Range(-actualAccuracyFactor, actualAccuracyFactor);
+                var randomNumberZ = Random.Range(-actualAccuracyFactor, actualAccuracyFactor);
                 bullets.Items[i].transform.Rotate(randomNumberX, randomNumberY, randomNumberZ);
 
                 bullets.Items[i].SetActive(true);
-                remainingEnergy.Value -= energyBulletCost.Value;
+                remainingEnergy.Value -= actualBulletCost;
                 playerShot.Raise();
                 energyRecharged.Raise();
                 break;
             }
         }
     }
+
+    public void RestartStats()
+    {
+        StartCoroutine(Restart());
+    }
+
+    private IEnumerator Restart()
+    {
+        keepRecharging = false;
+        yield return new WaitForSeconds(0.1f);
+        Initialize();
+    }
+
 }
