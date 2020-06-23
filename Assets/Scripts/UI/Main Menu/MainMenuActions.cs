@@ -3,8 +3,8 @@
 public class MainMenuActions : MonoBehaviour
 {
     [Header("Data Variables")]
-    [SerializeField] private StringReference sceneToChange;
-    [SerializeField] private GameEvent changeSceneEvent;
+    [SerializeField] private StringReference sceneToChange = null;
+    [SerializeField] private GameEvent changeSceneEvent = null;
 
     public void StartLevel()
     {

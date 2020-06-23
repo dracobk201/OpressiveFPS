@@ -3,25 +3,25 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] private FloatReference maxEnergyPointsPunishment;
-    [SerializeField] private FloatReference energyPointsRegenPunishment;
-    [SerializeField] private FloatReference bulletEnergyCostPunishment;
-    [SerializeField] private FloatReference bulletDamagePunishment;
-    [SerializeField] private FloatReference gunAccuracyPunishment;
+    [SerializeField] private FloatReference maxEnergyPointsPunishment = null;
+    [SerializeField] private FloatReference energyPointsRegenPunishment = null;
+    [SerializeField] private FloatReference bulletEnergyCostPunishment = null;
+    [SerializeField] private FloatReference bulletDamagePunishment = null;
+    [SerializeField] private FloatReference gunAccuracyPunishment = null;
 
     [Header("Bullet Variables")]
-    [SerializeField] private BulletsRuntimeSet bullets;
-    [SerializeField] private FloatReference actualMaxEnergy;
-    [SerializeField] private FloatReference remainingEnergy;
-    [SerializeField] private FloatReference energyBulletCost;
-    [SerializeField] private FloatReference energyRegenerationAmount;
-    [SerializeField] private FloatReference energyRegenerationTime;
-    [SerializeField] private FloatReference bulletDamage;
-    [SerializeField] private FloatReference actualBulletDamage;
-    [SerializeField] private FloatReference accuracyFactor;
-    [SerializeField] private GameEvent playerShot;
-    [SerializeField] private GameEvent energyRecharged;
-    [SerializeField] private Transform bulletPosition;
+    [SerializeField] private BulletsRuntimeSet bullets = null;
+    [SerializeField] private FloatReference actualMaxEnergy = null;
+    [SerializeField] private FloatReference remainingEnergy = null;
+    [SerializeField] private FloatReference energyBulletCost = null;
+    [SerializeField] private FloatReference energyRegenerationAmount = null;
+    [SerializeField] private FloatReference energyRegenerationTime = null;
+    [SerializeField] private FloatReference bulletDamage = null;
+    [SerializeField] private FloatReference actualBulletDamage = null;
+    [SerializeField] private FloatReference accuracyFactor = null;
+    [SerializeField] private GameEvent playerShot = null;
+    [SerializeField] private GameEvent energyRecharged = null;
+    [SerializeField] private Transform bulletPosition = null;
     private bool keepRecharging;
     private float actualEnergyRegen;
     private float actualBulletCost;

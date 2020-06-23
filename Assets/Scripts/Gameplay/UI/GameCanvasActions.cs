@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class GameCanvasActions : MonoBehaviour
 {
-    [SerializeField] private FloatReference remainingTime;
-    [SerializeField] private Text timeText;
+    [SerializeField] private FloatReference remainingTime = null;
+    [SerializeField] private Text timeText = null;
 
     private void Update()
     {

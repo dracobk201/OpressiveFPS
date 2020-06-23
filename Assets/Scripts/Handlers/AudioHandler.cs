@@ -5,12 +5,12 @@ public class AudioHandler : MonoBehaviour
 {
     #region Audio Variables
     [Header("Audio Variables")]
-    [SerializeField] private FloatReference musicVolume;
-    [SerializeField] private FloatReference sfxVolume;
+    [SerializeField] private FloatReference musicVolume = null;
+    [SerializeField] private FloatReference sfxVolume = null;
     [FormerlySerializedAs("musicPlayer")]
-    [SerializeField] private AudioSource bgmAudioSource;
+    [SerializeField] private AudioSource bgmAudioSource = null;
     [FormerlySerializedAs("sfxPlayer")]
-    [SerializeField] private AudioSource sfxAudioSource;
+    [SerializeField] private AudioSource sfxAudioSource = null;
     #endregion
 
     private void Start()

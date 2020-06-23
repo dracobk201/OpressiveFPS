@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class PlayerArmor : MonoBehaviour
 {
-    [SerializeField] private FloatReference maxHealthPointsPunishment;
-    [SerializeField] private FloatReference playerMaxImpacts;
-    [SerializeField] private FloatReference playerRemainingImpacts;
-    [SerializeField] private GameEvent playerDamaged;
-    [SerializeField] private GameEvent playerDefeated;
+    [SerializeField] private FloatReference maxHealthPointsPunishment = null;
+    [SerializeField] private FloatReference playerMaxImpacts = null;
+    [SerializeField] private FloatReference playerRemainingImpacts = null;
+    [SerializeField] private GameEvent playerDamaged = null;
+    [SerializeField] private GameEvent playerDefeated = null;
 
     private void Start()
     {

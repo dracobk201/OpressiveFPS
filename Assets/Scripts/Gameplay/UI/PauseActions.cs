@@ -3,9 +3,9 @@
 public class PauseActions : MonoBehaviour
 {
     [Header("Data Variables")]
-    [SerializeField] private BoolReference gamePaused;
-    [SerializeField] private StringReference sceneToChange;
-    [SerializeField] private GameEvent changeSceneEvent;
+    [SerializeField] private BoolReference gamePaused = null;
+    [SerializeField] private StringReference sceneToChange = null;
+    [SerializeField] private GameEvent changeSceneEvent = null;
 
     [Header("Panel Variable")]
     [SerializeField] private GameObject pauseHolder;

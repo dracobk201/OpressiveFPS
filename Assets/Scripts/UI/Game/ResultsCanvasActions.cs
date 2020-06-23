@@ -3,17 +3,17 @@ using TMPro;
 
 public class ResultsCanvasActions : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI punishmentsText;
-    [SerializeField] private FloatReference maxHealthPointsPunishment;
-    [SerializeField] private FloatReference maxEnergyPointsPunishment;
-    [SerializeField] private FloatReference energyPointsRegenPunishment;
-    [SerializeField] private FloatReference bulletEnergyCostPunishment;
-    [SerializeField] private FloatReference bulletDamagePunishment;
-    [SerializeField] private FloatReference bulletVelocityPunishment;
-    [SerializeField] private FloatReference gunAccuracyPunishment;
-    [SerializeField] private FloatReference movementSpeedPunishment;
-    [SerializeField] private StringReference sceneToChange;
-    [SerializeField] private GameEvent changeSceneEvent;
+    [SerializeField] private TextMeshProUGUI punishmentsText = null;
+    [SerializeField] private FloatReference maxHealthPointsPunishment = null;
+    [SerializeField] private FloatReference maxEnergyPointsPunishment = null;
+    [SerializeField] private FloatReference energyPointsRegenPunishment = null;
+    [SerializeField] private FloatReference bulletEnergyCostPunishment = null;
+    [SerializeField] private FloatReference bulletDamagePunishment = null;
+    [SerializeField] private FloatReference bulletVelocityPunishment = null;
+    [SerializeField] private FloatReference gunAccuracyPunishment = null;
+    [SerializeField] private FloatReference movementSpeedPunishment = null;
+    [SerializeField] private StringReference sceneToChange = null;
+    [SerializeField] private GameEvent changeSceneEvent = null;
 
     public void ShowInfo()
     {

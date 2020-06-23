@@ -3,7 +3,7 @@
 public class LoadingBehaviour : MonoBehaviour
 {
     [Header("Script Variables")]
-    [SerializeField] private GameObject loadingPanel;
+    [SerializeField] private GameObject loadingPanel = null;
     private bool isShowing;
 
     public void ShowingLoading()

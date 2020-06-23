@@ -4,13 +4,13 @@ using UnityEngine.AI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    [SerializeField] private FloatReference idleTime;
-    [SerializeField] private FloatReference patrolTime;
-    [SerializeField] private FloatReference patrolSwitchProbability;
-    [SerializeField] private FloatReference chaseVelocity;
-    [SerializeField] private FloatReference enemySpeed;
-    [SerializeField] private FloatReference enemySightRadius;
-    [SerializeField] private Rigidbody enemyRigidbody;
+    [SerializeField] private FloatReference idleTime = null;
+    [SerializeField] private FloatReference patrolTime = null;
+    [SerializeField] private FloatReference patrolSwitchProbability = null;
+    [SerializeField] private FloatReference chaseVelocity = null;
+    [SerializeField] private FloatReference enemySpeed = null;
+    [SerializeField] private FloatReference enemySightRadius = null;
+    [SerializeField] private Rigidbody enemyRigidbody = null;
 
     private Dictionary<string, iStates> _map = new Dictionary<string, iStates>();
     private iStates _currentState = null;

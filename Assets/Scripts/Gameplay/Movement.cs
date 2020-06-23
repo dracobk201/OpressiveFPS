@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private FloatReference movementSpeedPunishment;
-    [SerializeField] private FloatReference horizontalAxis;
-    [SerializeField] private FloatReference verticalAxis;
-    [SerializeField] private FloatReference moveSpeed;
+    [SerializeField] private FloatReference movementSpeedPunishment = null;
+    [SerializeField] private FloatReference horizontalAxis = null;
+    [SerializeField] private FloatReference verticalAxis = null;
+    [SerializeField] private FloatReference moveSpeed = null;
     private float _moveSpeed;
 
     private void Start()

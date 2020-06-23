@@ -2,9 +2,9 @@
 
 public class EnemyArmor : MonoBehaviour
 {
-    [SerializeField] private FloatReference enemyMaxImpacts;
-    [SerializeField] private FloatReference actualPlayerBulletDamage;
-    [SerializeField] private GameEvent enemyDefeated;
+    [SerializeField] private FloatReference enemyMaxImpacts = null;
+    [SerializeField] private FloatReference actualPlayerBulletDamage = null;
+    [SerializeField] private GameEvent enemyDefeated = null;
     private float _enemyRemainingImpacts;
 
     private void Start()

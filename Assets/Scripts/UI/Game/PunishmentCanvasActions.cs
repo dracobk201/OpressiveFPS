@@ -3,15 +3,15 @@ using TMPro;
 
 public class PunishmentCanvasActions : MonoBehaviour
 {
-    [SerializeField] private FloatReference maxHealthPointsPunishment;
-    [SerializeField] private FloatReference maxEnergyPointsPunishment;
-    [SerializeField] private FloatReference energyPointsRegenPunishment;
-    [SerializeField] private FloatReference bulletEnergyCostPunishment;
-    [SerializeField] private FloatReference bulletDamagePunishment;
-    [SerializeField] private FloatReference bulletVelocityPunishment;
-    [SerializeField] private FloatReference gunAccuracyPunishment;
-    [SerializeField] private FloatReference movementSpeedPunishment;
-    [SerializeField] private TextMeshProUGUI punishmentsText;
+    [SerializeField] private FloatReference maxHealthPointsPunishment = null;
+    [SerializeField] private FloatReference maxEnergyPointsPunishment = null;
+    [SerializeField] private FloatReference energyPointsRegenPunishment = null;
+    [SerializeField] private FloatReference bulletEnergyCostPunishment = null;
+    [SerializeField] private FloatReference bulletDamagePunishment = null;
+    [SerializeField] private FloatReference bulletVelocityPunishment = null;
+    [SerializeField] private FloatReference gunAccuracyPunishment = null;
+    [SerializeField] private FloatReference movementSpeedPunishment = null;
+    [SerializeField] private TextMeshProUGUI punishmentsText = null;
 
     private void Start()
     {

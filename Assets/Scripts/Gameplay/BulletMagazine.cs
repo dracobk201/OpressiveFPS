@@ -2,12 +2,9 @@
 
 public class BulletMagazine : MonoBehaviour
 {
-    [SerializeField]
-    private BulletsRuntimeSet playerBullets;
-    [SerializeField]
-    private IntReference playerBulletsPool;
-    [SerializeField]
-    private GameObject playerBulletPrefab;
+    [SerializeField] private BulletsRuntimeSet playerBullets = null;
+    [SerializeField] private IntReference playerBulletsPool = null;
+    [SerializeField] private GameObject playerBulletPrefab = null;
 
     private void Awake()
     {

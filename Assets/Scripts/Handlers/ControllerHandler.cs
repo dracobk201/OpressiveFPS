@@ -5,43 +5,43 @@ public class ControllerHandler : MonoBehaviour
 {
     #region Directional buttons
     [Header("Directional Buttons Variables")]
-    [SerializeField] private BoolReference horizontalSinglePress;
-    [SerializeField] private FloatReference horizontalAxis;
-    [SerializeField] private GameEvent nonHorizontalAxisEvent;
-    [SerializeField] private GameEvent leftButtonEvent;
-    [SerializeField] private GameEvent rightButtonEvent;
+    [SerializeField] private BoolReference horizontalSinglePress = null;
+    [SerializeField] private FloatReference horizontalAxis = null;
+    [SerializeField] private GameEvent nonHorizontalAxisEvent = null;
+    [SerializeField] private GameEvent leftButtonEvent = null;
+    [SerializeField] private GameEvent rightButtonEvent = null;
     private bool _isHorizontalAxisInUse;
 
-    [SerializeField] private BoolReference verticalSinglePress;
-    [SerializeField] private FloatReference verticalAxis;
-    [SerializeField] private GameEvent upButtonEvent;
-    [SerializeField] private GameEvent downButtonEvent;
-    [SerializeField] private GameEvent nonVerticalAxisEvent;
+    [SerializeField] private BoolReference verticalSinglePress = null;
+    [SerializeField] private FloatReference verticalAxis = null;
+    [SerializeField] private GameEvent upButtonEvent = null;
+    [SerializeField] private GameEvent downButtonEvent = null;
+    [SerializeField] private GameEvent nonVerticalAxisEvent = null;
     private bool _isVerticalAxisInUse;
 
-    [SerializeField] private GameEvent anyDirectionalAxisEvent;
-    //[SerializeField] private GameEvent noDirectionalAxisEvent;
+    [SerializeField] private GameEvent anyDirectionalAxisEvent = null;
+    //[SerializeField] private GameEvent noDirectionalAxisEvent = null;
 
     #endregion
 
     #region Camera Buttons
-    [SerializeField] private FloatReference mouseVerticalAxis;
-    [SerializeField] private FloatReference mouseHorizontalAxis;
-    [SerializeField] private GameEvent cameraLeftEvent;
-    [SerializeField] private GameEvent cameraRightEvent;
-    [SerializeField] private GameEvent cameraUpEvent;
-    [SerializeField] private GameEvent cameraDownEvent;
-    [SerializeField] private GameEvent anyCameraAxisEvent;
-    [SerializeField] private GameEvent noMouseVerticalAxis;
-    [SerializeField] private GameEvent noMouseHorizontalAxis;
+    [SerializeField] private FloatReference mouseVerticalAxis = null;
+    [SerializeField] private FloatReference mouseHorizontalAxis = null;
+    [SerializeField] private GameEvent cameraLeftEvent = null;
+    [SerializeField] private GameEvent cameraRightEvent = null;
+    [SerializeField] private GameEvent cameraUpEvent = null;
+    [SerializeField] private GameEvent cameraDownEvent = null;
+    [SerializeField] private GameEvent anyCameraAxisEvent = null;
+    [SerializeField] private GameEvent noMouseVerticalAxis = null;
+    [SerializeField] private GameEvent noMouseHorizontalAxis = null;
     #endregion
 
     #region Action Buttons
     [Header("Action Buttons Variables")]
-    [SerializeField] private GameEvent startButtonEvent;
-    [SerializeField] private GameEvent quitButtonEvent;
-    [SerializeField] private GameEvent fireButtonEvent;
-    [SerializeField] private GameEvent confirmButtonEvent;
+    [SerializeField] private GameEvent startButtonEvent = null;
+    [SerializeField] private GameEvent quitButtonEvent = null;
+    [SerializeField] private GameEvent fireButtonEvent = null;
+    [SerializeField] private GameEvent confirmButtonEvent = null;
 
     private bool _isStartAxisInUse = false;
     private bool _isQuitAxisInUse = false;
@@ -50,8 +50,8 @@ public class ControllerHandler : MonoBehaviour
     #endregion
     
     [Header("UI Active Variables")]
-    [SerializeField] private BoolReference uiPanelActive;
-    [SerializeField] private GameEvent uiChangeEvent;
+    [SerializeField] private BoolReference uiPanelActive = null;
+    [SerializeField] private GameEvent uiChangeEvent = null;
 
     private void Update()
     {

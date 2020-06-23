@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 public class SceneHandler : MonoBehaviour
 {
     [Header("Data Variables")]
-    [SerializeField] private StringReference sceneToChange;
-    [SerializeField] private FloatReference sceneChangeProgress;
-    [SerializeField] private FloatReference sceneChangeDelay;
-    [SerializeField] private GameEvent showSceneLoading;
+    [SerializeField] private StringReference sceneToChange = null;
+    [SerializeField] private FloatReference sceneChangeProgress = null;
+    [SerializeField] private FloatReference sceneChangeDelay = null;
+    [SerializeField] private GameEvent showSceneLoading = null;
     private bool _isChangingSceneNow;
     private AsyncOperation _sceneOperation;
 

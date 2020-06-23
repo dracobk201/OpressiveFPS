@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private FloatReference bulletVelocityPunishment;
+    [SerializeField] private FloatReference bulletVelocityPunishment = null;
     #region Bullet Variables
     [Header("Bullet Variables")]
-    [SerializeField] private FloatReference bulletVelocity;
-    [SerializeField] private FloatReference bulletTimeOfLife;
-    [SerializeField] private GameEvent enemyImpacted;
+    [SerializeField] private FloatReference bulletVelocity = null;
+    [SerializeField] private FloatReference bulletTimeOfLife = null;
+    [SerializeField] private GameEvent enemyImpacted = null;
     #endregion
 
     private void OnEnable()

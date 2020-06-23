@@ -4,16 +4,16 @@ using UnityEngine.UI;
 
 public class GameplayCanvasActions : MonoBehaviour
 {
-    [SerializeField] private FloatReference maxHealthPointsPunishment;
-    [SerializeField] private FloatReference maxEnergyPointsPunishment;
+    [SerializeField] private FloatReference maxHealthPointsPunishment = null;
+    [SerializeField] private FloatReference maxEnergyPointsPunishment = null;
 
     [Header("Player Variables")]
-    [SerializeField] private FloatReference maxArmor;
-    [SerializeField] private FloatReference actualArmor;
-    [SerializeField] private FloatReference maxEnergy;
-    [SerializeField] private FloatReference actualEnergy;
-    [SerializeField] private Image armorGauge;
-    [SerializeField] private Image energyGauge;
+    [SerializeField] private FloatReference maxArmor = null;
+    [SerializeField] private FloatReference actualArmor = null;
+    [SerializeField] private FloatReference maxEnergy = null;
+    [SerializeField] private FloatReference actualEnergy = null;
+    [SerializeField] private Image armorGauge = null;
+    [SerializeField] private Image energyGauge = null;
     private float armorPunishValue;
     private float energyPunishValue;
 

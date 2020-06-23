@@ -2,13 +2,13 @@
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private FloatReference mouseVerticalAxis;
-    [SerializeField] private FloatReference mouseHorizontalAxis;
-    [SerializeField] private FloatReference minCameraRotation;
-    [SerializeField] private FloatReference maxCameraRotation;
-    [SerializeField] private FloatReference horizontalCameraSensitivity;
-    [SerializeField] private FloatReference verticalCameraSensitivity;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private FloatReference mouseVerticalAxis = null;
+    [SerializeField] private FloatReference mouseHorizontalAxis = null;
+    [SerializeField] private FloatReference minCameraRotation = null;
+    [SerializeField] private FloatReference maxCameraRotation = null;
+    [SerializeField] private FloatReference horizontalCameraSensitivity = null;
+    [SerializeField] private FloatReference verticalCameraSensitivity = null;
+    [SerializeField] private Camera playerCamera = null;
     private Rigidbody _playerRigidbody;
     private float rotAroundX, rotAroundY;
 
