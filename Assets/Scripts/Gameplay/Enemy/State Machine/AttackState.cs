@@ -10,12 +10,14 @@ public class AttackState : iStates
     private bool _playerSpotted;
     private EnemyStateMachine _stateMachine;
     private NavMeshAgent _agent;
+    private Animator _enemyAnimator;
     private Rigidbody _enemyRigidbody;
     private Vector3 _targetDestination;
 
-    public AttackState(EnemyStateMachine stateMachine, Rigidbody enemyRigidbody, NavMeshAgent agent, float chaseVelocity, float sightRadius, float speed)
+    public AttackState(EnemyStateMachine stateMachine, Animator enemyAnimator, Rigidbody enemyRigidbody, NavMeshAgent agent, float chaseVelocity, float sightRadius, float speed)
     {
         _stateMachine = stateMachine;
+        _enemyAnimator = enemyAnimator;
         _enemyRigidbody = enemyRigidbody;
         _agent = agent;
         _chaseVelocity = chaseVelocity;
@@ -26,11 +28,12 @@ public class AttackState : iStates
     public override void OnEnter()
     {
         _initTime = 0;
+        _enemyAnimator.SetBool(Global.RunAnimation, true);
     }
 
     public override void OnExit()
     {
-        //Debug.Log("Exit");
+        _enemyAnimator.SetBool(Global.RunAnimation, false);
     }
 
     public override void Update()

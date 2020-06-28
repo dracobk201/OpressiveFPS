@@ -28,6 +28,13 @@
     public const string AttackState = "Attack State";
     #endregion
 
+    #region Animations
+    public const string WalkAnimation = "walk";
+    public const string RunAnimation = "run";
+    public const string AttackAnimation = "attack";
+    public const string DeathAnimation = "death";
+    #endregion
+
     #region Constants
     public const double Tolerance = float.Epsilon;
     #endregion

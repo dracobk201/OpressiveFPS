@@ -11,11 +11,13 @@ public class PatrolState : iStates
     private float _sightRadius;
     private EnemyStateMachine _stateMachine;
     private NavMeshAgent _agent;
+    private Animator _enemyAnimator;
     private Rigidbody _enemyRigidbody;
 
-    public PatrolState(EnemyStateMachine stateMachine, Rigidbody enemyRigidbody, NavMeshAgent agent, float timeToChange, float switchProbability, float sightRadius)
+    public PatrolState(EnemyStateMachine stateMachine, Animator enemyAnimator, Rigidbody enemyRigidbody, NavMeshAgent agent, float timeToChange, float switchProbability, float sightRadius)
     {
         _stateMachine = stateMachine;
+        _enemyAnimator = enemyAnimator;
         _enemyRigidbody = enemyRigidbody;
         _agent = agent;
         _timeToChange = timeToChange;
@@ -26,13 +28,14 @@ public class PatrolState : iStates
     public override void OnEnter()
     {
         _initTime = 0;
+        _enemyAnimator.SetBool(Global.WalkAnimation, true);
         ChangePatrolPoint();
         SetNewDestination();
     }
 
     public override void OnExit()
     {
-
+        _enemyAnimator.SetBool(Global.WalkAnimation, false);
     }
 
     public override void Update()
@@ -70,6 +73,7 @@ public class PatrolState : iStates
             if (isvalid)
             {
                 _agent.SetDestination(finalPosition);
+                _enemyRigidbody.transform.LookAt(finalPosition);
                 _agent.isStopped = false;
             }
             else

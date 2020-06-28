@@ -5,17 +5,19 @@ public class IdleState : iStates
     private float _timeToChange;
     private float _initTime;
     private EnemyStateMachine _stateMachine;
+    private Animator _enemyAnimator;
 
-    public IdleState(EnemyStateMachine stateMachine, float timeToChange)
+    public IdleState(EnemyStateMachine stateMachine, Animator enemyAnimator, float timeToChange)
     {
         _timeToChange = timeToChange;
+        _enemyAnimator = enemyAnimator;
         _stateMachine = stateMachine;
     }
 
     public override void OnEnter()
     {
         _initTime = 0;
-        //_animator.SetBool(Global.MOVINGANIMATION, false);
+        //_enemyAnimator.SetBool(Global.MOVINGANIMATION, false);
     }
 
     public override void OnExit()
